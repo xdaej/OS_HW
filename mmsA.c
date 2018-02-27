@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*
+  Max, Min, Sum: Part A
+*/
+
 char* ReadFile(char *filename) {
    char *buffer = NULL;
    int string_size, read_size;
@@ -42,7 +46,8 @@ char* ReadFile(char *filename) {
 int main() {
     int min, max, sum, temp;
     char *string = ReadFile("input_test.txt");
-    /* if (string) {
+    /* 
+    if (string) {
         puts(string);
         free(string);
     }
