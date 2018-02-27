@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 /*
   Max, Min, Sum: Part A
@@ -44,6 +45,11 @@ char* ReadFile(char *filename) {
 }
 
 int main() {
+  clock_t begin = clock();
+
+/* here, do your time-consuming job */
+
+
     int min, max, sum, temp;
     char *string = ReadFile("input_test.txt");
     /* 
@@ -62,6 +68,8 @@ int main() {
       if(temp < min) { min = temp; }
       sum += temp;
     }
-    printf("max: %d min: %d, sum: %d \n", max, min, sum);
+    clock_t end = clock();
+    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+    printf("max: %d min: %d, sum: %d time spent: %f \n", max, min, sum, time_spent);
     return 0;
 }
