@@ -1,0 +1,10 @@
+Started process D, pid=9966
+Started process B, pid=9964
+Process B, pid=9964: Forked D, pid=9966
+Process B, pid=9964: WaitingStarted process A, pid=9963
+Process A, pid=9963: Forked B, pid=9964
+Process A, pid=9963: Forked C, pid=9965
+Process A, pid=9963: Waiting for children to end
+Process A, pid=9963: Child exited with status 9
+Process A, pid=9963: Child exited with status 8
+Process A, pid=9963: ending process

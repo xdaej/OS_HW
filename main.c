@@ -32,10 +32,12 @@ int retVal;
 
 void processfunction()
 {
+    FILE *out = fopen("p1.out", "w+");
     int i, j;
     int n = sizeof(process) / sizeof(struct processInfo);
     
     printf("Started process %c, pid=%d\n", myId, getpid());
+    fprintf(out, "Started process %c, pid=%d\n", myId, getpid());
     
     /* Get the children details */
     for(i = 0; i < n; i++)
@@ -55,6 +57,7 @@ void processfunction()
             if(pids[j] < 0)
             {
                 printf("Process %c, pid=%d: fork failed\n", myId, getpid());
+                fprintf(out, "Process %c, pid=%d: fork failed\n", myId, getpid());
             }
             if(pids[j] == 0)
             {
@@ -68,10 +71,12 @@ void processfunction()
             else
             {
                 printf("Process %c, pid=%d: Forked %c, pid=%d\n", myId, getpid(), process[i].children[j], pids[j]);
+                fprintf(out,"Process %c, pid=%d: Forked %c, pid=%d\n", myId, getpid(), process[i].children[j], pids[j]);
             }
         }
         /* Children forked, wait for children to end */
         printf("Process %c, pid=%d: Waiting for children to end\n", myId, getpid());
+        fprintf(out,"Process %c, pid=%d: Waiting for children to end\n", myId, getpid());
         for(j = 0; j < process[i].numChild; j++)
         {
             int status;
@@ -79,6 +84,7 @@ void processfunction()
             {
                 waitpid(pids[j], &status, 0);
                 printf("Process %c, pid=%d: Child exited with status %d\n", myId, getpid(), WEXITSTATUS(status));
+                fprintf(out,"Process %c, pid=%d: Child exited with status %d\n", myId, getpid(), WEXITSTATUS(status));
             }
         }
     }
@@ -86,6 +92,7 @@ void processfunction()
     /* Sleep for sometime */
     sleep(10);
     printf("Process %c, pid=%d: ending process\n", myId, getpid());
+    fprintf(out,"Process %c, pid=%d: ending process\n", myId, getpid());
 }
 
 int main()
