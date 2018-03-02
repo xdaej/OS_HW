@@ -7,7 +7,6 @@
 #include <sys/ipc.h>
 #include <sys/shm.h>
 
-int shmid;
 int *values;
 int size;
 
@@ -25,11 +24,12 @@ int main(int argc, char *argv[]) {
   int sum = 0;
   int temp;
 
-  for(int i = 0; i < size; i++){
+  //printf("size: %d\n", size);
+  for(int i = 0; i < size - 1; i++){
     temp = values[i];
     if(temp > max) { max = temp; }
-    if(temp < min && temp != 0) { min = temp; }
-    printf("%d\n", temp);
+    if(temp < min && temp ) { min = temp; }
+    //printf("%d\n", temp);
     sum += temp;
   }
 
