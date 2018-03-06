@@ -8,8 +8,8 @@ struct tree_node{
 }
 
 /* struct for creating new nodes */
-struct node* newNode(int children_no, char data){
-    struct node *temp = new struct node;
+struct tree_node* newNode(int children_no, char data){
+    struct tree_node *temp = new struct tree_node;
     temp->children_no = children_no
     temp->data = data;
     temp->left = NULL;
@@ -17,14 +17,14 @@ struct node* newNode(int children_no, char data){
     return temp;
 }
 	
-bool hasleft(node n){
+bool hasleft(tree_node n){
 	if(n->left != NULL)
 		return true;
 	else
 		return false;
 }
 
-bool hasright(node n){
+bool hasright(tree_node n){
 	if(n->right != NULL)
 		return true;
 	else
@@ -33,7 +33,7 @@ bool hasright(node n){
 
 /* Helper function for getLevel().  It returns level of the data if data is
    present in tree, otherwise returns 0.*/
-int getLevelUtil(struct node *node, int data, int level)
+int getLevelUtil(struct tree_node *node, int data, int level)
 {
     if (node == NULL)
         return 0;
@@ -50,14 +50,14 @@ int getLevelUtil(struct node *node, int data, int level)
 }
  
 /* Returns level of given data value */
-int getLevel(struct node *node, int data)
+int getLevel(struct tree_node *node, int data)
 {
     return getLevelUtil(node,data,1);
 }
 
 int main()
 {
-    struct node *root = new struct node;
+    struct tree_node *root = new struct tree_node;
     int x;
  
     /* Constructing tree given in the above figure */
