@@ -1,14 +1,16 @@
-/* struct for nodes*/
-struct node{
-	char data;
+
+/* struct for tree nodes*/
+struct tree_node{
+	int children_no;
+	char name;
 	struct node *left;
 	struct node *right;
 }
 
 /* struct for creating new nodes */
-struct node* newNode(char data)
-{
+struct node* newNode(int children_no, char data){
     struct node *temp = new struct node;
+    temp->children_no = children_no
     temp->data = data;
     temp->left = NULL;
     temp->right = NULL;
@@ -51,4 +53,30 @@ int getLevelUtil(struct node *node, int data, int level)
 int getLevel(struct node *node, int data)
 {
     return getLevelUtil(node,data,1);
+}
+
+int main()
+{
+    struct node *root = new struct node;
+    int x;
+ 
+    /* Constructing tree given in the above figure */
+    root = newNode(3);
+    root->left = newNode(2);
+    root->right = newNode(5);
+    root->left->left = newNode(1);
+    root->left->right = newNode(4);
+ 
+    for (x = 1; x <=5; x++)
+    {
+      int level = getLevel(root, x);
+      if (level)
+        printf(" Level of %d is %d\n", x, getLevel(root, x));
+      else
+        printf(" %d is not present in tree \n", x);
+ 
+    }
+ 
+    getchar();
+    return 0;
 }
