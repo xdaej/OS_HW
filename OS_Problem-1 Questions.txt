@@ -5,4 +5,6 @@ Then in this scenario by assigning the init process as the new parent to the orp
 processes. The init prcoess periodically invokes wait(), thereby allowing the exit status of any orphaned
 process to be collected and releasing the orphan's process identifier and process-table entry.
 
-2.
+2.You would probably get some kind of error, because getpid() gets the
+process identifier of the calling process, where as getppid() gets the process identifier
+of the parent process of the calling process.
