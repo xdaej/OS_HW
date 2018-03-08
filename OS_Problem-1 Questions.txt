@@ -5,6 +5,7 @@ Then in this scenario by assigning the init process as the new parent to the orp
 processes. The init prcoess periodically invokes wait(), thereby allowing the exit status of any orphaned
 process to be collected and releasing the orphan's process identifier and process-table entry.
 
-2.You would probably get some kind of error, because getpid() gets the
-process identifier of the calling process, where as getppid() gets the process identifier
-of the parent process of the calling process.
+2.If you display the process tree with root getpid() instead of pid() you will
+get the process id of the root, the other prcoesses that appear in the tree
+are the children processes because calling getpid() on those process will also retrieve
+the process id for those processes.
