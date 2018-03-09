@@ -1,0 +1,16 @@
+Problem 1:
+Questions:
+1. If root process A is terminated prematurely, by issuing kill, the children process will become orphans.
+Then in this scenario by assigning the init process as the new parent to the orphan
+processes. The init process periodically invokes wait(), thereby allowing the exit status of any orphaned
+process to be collected and releasing the orphan's process identifier and process-table entry.
+
+2.If you display the process tree with root getpid() instead of pid() you will
+get the process id of the root, the other prcoesses that appear in the tree
+are the children processes because calling getpid() on those process will also retrieve
+the process id for those processes.
+
+3.When root process A starts it is given the pid 54357, it differs everytime it is run
+, but for this case this was the pid given to root process A. Each child process gets lastPid+1
+as their pid. Since the maximum pid on mac os is 99998, then the largest amount of processes possible would be
+99998-54357=45641. So the largest process tree we could have would be a tree that containted 45641 processes.
