@@ -2,7 +2,7 @@ Problem 1:
 Questions:
 1. If root process A is terminated prematurely, by issuing kill, the children process will become orphans.
 Then in this scenario by assigning the init process as the new parent to the orphan
-processes. The init prcoess periodically invokes wait(), thereby allowing the exit status of any orphaned
+processes. The init process periodically invokes wait(), thereby allowing the exit status of any orphaned
 process to be collected and releasing the orphan's process identifier and process-table entry.
 
 2.If you display the process tree with root getpid() instead of pid() you will
