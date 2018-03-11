@@ -1,0 +1,7 @@
+In problem 0 the goal was to find min, max, and sum through 3 different ways.
+mmsA solves this problem in one process taking 0.012547 seconds to complete
+mmsB solves this problem by spliting the work between two processes and communicating the result using IPC: pipes. 
+	this takes 0.016183 seconds to complete which is longer than mmsA.
+mmsC solve this problem by splitting the work between 5 processes, 2 which are child processes and
+	another 2 which are grandchildren processes(child child). The time it takes to solve is 0.011945 seconds
+	which is fast than the previous two methods due to more work being split among more processes.
