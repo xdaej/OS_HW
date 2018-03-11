@@ -1,0 +1,7 @@
+1. When comparing sleep and signal, we must consider their restrictions. In sleep, the restriction is based on time it takes for the process to end.
+However, in signal, once the program has received the signal, the execution happens immediately. It is based on what the user wants when considering
+which one to use.
+
+
+2. Before the parent process dies, parent process responsibililty the 'wait_for_children()' function checks that all children have died or done their task. 
+This is to avoid making any its child process a zombi by handling wait_for_children() function. If the function 'wait_for_children()' didn't handle then parent process dies but the child process runs as a zombie and thus unnecessarily uses resources.
