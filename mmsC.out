@@ -1,0 +1,8 @@
+hi, i'm process 29563 and my parent is 29556
+hi, i'm process 29564 and my parent is 29556
+hi, i'm process 29561 and my parent is 29556
+hi, i'm process 29562 and my parent is 29556
+min = -100
+max = 100
+sum = -26054
+time = 0.011945 

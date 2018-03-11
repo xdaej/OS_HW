@@ -1,4 +1,4 @@
-hi, i'm process 11295 and my parent is 11294
-hi, i'm process 11294 and my parent is 7611
-max = 1000 min = 1 sum = 1655 
-time = 0.000510 
+hi, i'm process 22812 and my parent is 22811
+hi, i'm process 22811 and my parent is 22541
+max = 100 min = -100 sum = -26067 
+time = 0.016183 
